@@ -33,8 +33,12 @@ class Body extends Component {
             return string.charAt(0).toLowerCase() + string.slice(1);
         }
         for (var i = 0; i < 20; i++) {
-            participants.push({name:capitalize(words[Math.floor(Math.random() * 299)]) + " " + capitalize(words[Math.floor(Math.random() * 299)]),
-                email:lowerC(words[Math.floor(Math.random() * 299)])+"@"+words[Math.floor(Math.random() * 299)]+"."+ends[Math.floor(Math.random() * ends.length)], number:Math.floor(Math.random() * 100000000 + 1000000) +"", edit:false})
+            participants.push({name:capitalize(words[Math.floor(Math.random() * 299)])
+            + " " + capitalize(words[Math.floor(Math.random() * 299)]),
+                email:lowerC(words[Math.floor(Math.random() * 299)])
+                +"@"+words[Math.floor(Math.random() * 299)]+
+                "."+ends[Math.floor(Math.random() * ends.length)],
+                number:Math.floor(Math.random() * 100000000 + 1000000) +"", edit:false})
         }
         this.setState({participants: participants});
 
@@ -79,9 +83,15 @@ class Body extends Component {
     sortParticipants(attribute, reverse) {
         var participants = this.state.participants;
         var att;
-        if (attribute === 0) participants.sort(function(a,b) {return (a.name > b.name) ? 1 * reverse : ((b.name > a.name) ? -1 * reverse : 0);});
-        if (attribute === 1) participants.sort(function(a,b) {return (a.email > b.email) ? 1 * reverse : ((b.email > a.email) ? -1 * reverse : 0);});
-        if (attribute === 2) participants.sort(function(a,b) {return (a.number > b.number) ? 1 * reverse : ((b.number > a.number) ? -1 * reverse : 0);});
+        if (attribute === 0) participants.sort(
+            function(a,b) {return (a.name > b.name) ? 1 * reverse : ((b.name > a.name) ? -1 * reverse : 0);});
+
+        if (attribute === 1) participants.sort(
+            function(a,b) {return (a.email > b.email) ? 1 * reverse : ((b.email > a.email) ? -1 * reverse : 0);});
+
+        if (attribute === 2) participants.sort(
+            function(a,b) {return (a.number > b.number) ? 1 * reverse : ((b.number > a.number) ? -1 * reverse : 0);});
+
         this.state.sorted[attribute] = reverse === -1 ? 2 : 1;
         this.setState({participants : participants});
     }

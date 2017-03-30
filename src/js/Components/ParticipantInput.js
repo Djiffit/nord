@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class ParticipantInput extends Component {
 
     handleName(e) {
-        if ((e.target.value.length < 25) && (/^[a-zA-ZäÄöÖåÅ '\-]+$/.test(e.target.value) || e.target.value.length === 0)) {
+        if ((e.target.value.length < 25) &&
+            (/^[a-zA-ZäÄöÖåÅ '\-]+$/.test(e.target.value) || e.target.value.length === 0)) {
             this.props.updateName(e.target.value);
         }
         if (e.target.value.length < 3) {
@@ -14,8 +15,16 @@ class ParticipantInput extends Component {
     }
 
     handleEmail(e) {
+        var wrd = e.target.value;
+        var reg = /^[0-9a-zA-Z.\-@]$/
         var regex = /^[0-9a-zA-Z.\-]+[@][0-9a-zA-Z.\-]+[.][a-zA-Z]+$/;
-        this.props.updateEmail(e.target.value);
+        for (var i = 0; i < wrd.length; i++) {
+            if (!reg.test(wrd[i]) && wrd.length > 0) {
+                wrd = wrd.slice(0,i) + wrd.slice(i+1, wrd.length -1);
+                i--;
+            }
+        }
+        this.props.updateEmail(wrd);
         if (e.target.value.length < 3 || !regex.test(e.target.value)) {
             this.props.updateError(1, 1);
         } else if (regex.test(e.target.value)) {
@@ -24,7 +33,8 @@ class ParticipantInput extends Component {
     }
 
     handleNumber(e) {
-        if ((e.target.value.length < 15) && (/^[0-9]+$/.test(e.target.value) || e.target.value.length === 0)) {
+        if ((e.target.value.length < 15) &&
+            (/^[0-9]+$/.test(e.target.value) || e.target.value.length === 0)) {
             this.props.updateNumber(e.target.value);
         }
         if (e.target.value.length < 7) {
@@ -70,7 +80,12 @@ class ParticipantInput extends Component {
             inputStyle.outlineColor = 'red';
         }
         return (
-            <input type="text" className="form-control" style={inputStyle} onChange={change} value={value} placeholder={placeholder}/>
+            <input type="text"
+                   className="form-control"
+                   style={inputStyle}
+                   onChange={change}
+                   value={value}
+                   placeholder={placeholder}/>
         )
     }
 

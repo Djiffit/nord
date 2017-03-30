@@ -8,14 +8,12 @@ class App extends Component {
         if (w > 976) {
             w = (w - 976) / 2;
         } else w = 0;
-        console.log(window.innerWidth)
         if (document.documentElement.clientWidth < 976) w = 0;
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-sm-offset-1 col-sm-6" style={{
-                        width: '976px',
-                    }} >
+                        width: '976px',}} >
                         <div style={{width: '100%',
                             height: '96px',}}>
                             <Header/>
@@ -25,7 +23,7 @@ class App extends Component {
                     <div className="col-sm-offset-1 col-sm-6" style={{
                         height: '100%',
                         width: '976px',
-                    }} >
+                    }}>
                         <div style={{width: '100%'}}>
                             <Body/>
                         </div>

@@ -6,7 +6,11 @@ class EditableRow extends Component {
     constructor() {
         super();
         this.state = {
-            name:"", email:"", number:"", proper:true, errors:[0,0,0]
+            name:"",
+            email:"",
+            number:"",
+            proper:true,
+            errors:[0,0,0]
         }
     }
 
@@ -60,11 +64,30 @@ class EditableRow extends Component {
         return (
             <div style={{ borderTopStyle: 'solid', borderWidth:'1px', borderColor: '#f1f1f1'}}>
                 <div style={{backgroundColor: 'white'}}>
-                    <div style={{paddingLeft: '24px', paddingTop: '16px', height:'72px'}}>
+                    <div style={{paddingLeft: '24px',
+                        paddingTop: '16px',
+                        height:'72px'}}>
                         <form className="form-horizontal">
-                            <ParticipantInput values={this.state} updateName={this.updateName.bind(this)} updateError={this.updateError.bind(this)} updateEmail={this.updateEmail.bind(this)} updateNumber={this.updateNumber.bind(this)}/>
-                            <button style={{float:'right', width:'8%', backgroundColor:'#07f', marginRight: '16px', color:'#ffffff'}} onSubmit={this.saveElement.bind(this)} onClick={this.saveElement.bind(this)} className="btn btn-default">Save</button>
-                            <button style={{float:'right', color:'#07f', width:'10%', marginRight: '16px'}} onSubmit={this.updateElement.bind(this)} onClick={this.updateElement.bind(this)} className="btn btn-default">Cancel</button>
+                            <ParticipantInput values={this.state}
+                                              updateName={this.updateName.bind(this)}
+                                              updateError={this.updateError.bind(this)}
+                                              updateEmail={this.updateEmail.bind(this)}
+                                              updateNumber={this.updateNumber.bind(this)}/>
+                            <button style={{float:'right',
+                                width:'8%',
+                                backgroundColor:'#07f',
+                                marginRight: '16px',
+                                color:'#ffffff'}}
+                                    onSubmit={this.saveElement.bind(this)}
+                                    onClick={this.saveElement.bind(this)}
+                                    className="btn btn-default">Save</button>
+                            <button style={{float:'right',
+                                color:'#07f',
+                                width:'10%',
+                                marginRight: '16px'}}
+                                    onSubmit={this.updateElement.bind(this)}
+                                    onClick={this.updateElement.bind(this)}
+                                    className="btn btn-default">Cancel</button>
                         </form>
                     </div>
                 </div>

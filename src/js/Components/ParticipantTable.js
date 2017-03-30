@@ -66,7 +66,9 @@ class ParticipantTable extends Component {
         }
         return (
             <div style={{backgroundColor: 'white', width: '96.7%'}}>
-                <div style={{paddingLeft: '24px', paddingTop: '16px', height:'48px'}}>
+                <div style={{paddingLeft: '24px',
+                    paddingTop: '16px',
+                    height:'48px'}}>
                     {columns}
                 </div>
                 {parts}

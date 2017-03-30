@@ -6,7 +6,10 @@ class NewParticipant extends Component {
     constructor() {
         super();
         this.state = {
-            name : "", email : "", number : "", errors: [0, 0, 0]
+            name : "",
+            email : "",
+            number : "",
+            errors: [0, 0, 0]
         }
     }
 
@@ -68,9 +71,17 @@ class NewParticipant extends Component {
                     <div className="form-group">
                         <div className="col-md-12">
                             <div className="form-group row">
-                                <div style={{paddingTop:'16px', paddingLeft:'32px'}}>
-                                    <ParticipantInput values={this.state} updateName={this.updateName.bind(this)} updateError={this.updateError.bind(this)} updateEmail={this.updateEmail.bind(this)} updateNumber={this.updateNumber.bind(this)}/>
-                                    <button style={{float:'right', marginRight: '32px'}} onSubmit={this.createNewParticipant.bind(this)} onClick={this.createNewParticipant.bind(this)} className="btn btn-default">Add new</button>
+                                <div style={{paddingTop:'16px',
+                                    paddingLeft:'32px'}}>
+                                    <ParticipantInput values={this.state}
+                                                      updateName={this.updateName.bind(this)}
+                                                      updateError={this.updateError.bind(this)}
+                                                      updateEmail={this.updateEmail.bind(this)}
+                                                      updateNumber={this.updateNumber.bind(this)}/>
+                                    <button style={{float:'right', marginRight: '32px'}}
+                                            onSubmit={this.createNewParticipant.bind(this)}
+                                            onClick={this.createNewParticipant.bind(this)}
+                                            className="btn btn-default">Add new</button>
                                 </div>
                             </div>
                         </div>
